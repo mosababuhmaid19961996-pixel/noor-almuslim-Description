@@ -1,0 +1,138 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102b43"><title>نور المسلم | القرآن والأذكار والأدعية</title><meta name="description" content="نور المسلم - موقع عربي مجاني للقرآن الكريم والأذكار والأدعية ومواقيت الصلاة والطقس والتنبيهات اليومية."><link rel="stylesheet" href="style.css"></head><body><header class="topbar">
+<a class="brand" href="index.html"><span class="brand-mark">🌿</span><div><strong>نور المسلم</strong><small>القرآن والأذكار والأدعية وأكثر</small></div></a>
+<nav id="nav"><a href="index.html">الرئيسية</a><a href="sections.html">الأقسام</a><a href="about.html">حول الموقع</a></nav>
+<div class="actions"><button id="menuToggle" aria-label="القائمة">☰</button></div>
+</header><section class="page-hero" id="mofeedHero"><div class="hero-slides" aria-hidden="true"></div><div class="hero-shade"></div><div class="wrap"><div class="breadcrumb">أهلًا بك في موقع نور المسلم</div><h1>مرحبًا بك في <span style="color:#7de2bb">نور المسلم</span> 🌿</h1><p>موقع عربي مجاني للقرآن الكريم والأذكار والأدعية، مع الوقت والطقس الظاهرين في معلوماتك اليومية، وباقي الخدمات داخل قوائم مستقلة.</p><div class="photo-credit">صور الخلفية بالتتابع: <a href="https://commons.wikimedia.org/wiki/File:Al_Aqsa.jpg" target="_blank" rel="noopener">المسجد الأقصى</a> · <a href="https://commons.wikimedia.org/wiki/File:Masjid_Al_Haram._Mecca,_Saudi_Arabia.jpg" target="_blank" rel="noopener">المسجد الحرام</a> · <a href="https://commons.wikimedia.org/wiki/File:Prophet_Mosque.jpg" target="_blank" rel="noopener">المسجد النبوي</a></div></div></section>
+<section class="section local-dashboard-section" id="dailyRotatorSection">
+  <div class="daily-rotator" id="dailyRotator">
+    <article class="daily-panel active" data-panel="daily">
+      <div class="rotator-head"><div><span class="rotator-icon">🌍</span><h2>معلوماتك اليومية</h2><p>الوقت والتاريخ والمنطقة والطقس</p></div><span class="rotator-dots"><i class="active"></i><i></i><i></i></span></div>
+      <div class="local-dashboard">
+        <div class="info-tile"><span>🕒</span><div><small>الوقت الآن</small><strong id="localTime">--:--</strong><em id="localDate">جاري التحميل…</em></div></div>
+        <div class="info-tile"><span>📅</span><div><small>التاريخ الهجري</small><strong id="hijriDate">--</strong><em id="gregorianDate">--</em></div></div>
+        <div class="info-tile"><span>📍</span><div><small>منطقة الزائر</small><strong id="visitorCity">جاري تحديد المنطقة…</strong><em id="locationStatus">اسمح بالموقع للحصول على بيانات أدق</em></div></div>
+        <div class="info-tile weather-tile"><span id="weatherIcon">🌤️</span><div><small>الطقس الآن</small><strong id="weatherTemp">--°</strong><em id="weatherText">جاري التحميل…</em></div></div>
+      </div>
+    </article>
+    <article class="daily-panel" data-panel="prayer">
+      <div class="rotator-head"><div><span class="rotator-icon">🕌</span><h2>مواقيت الصلاة</h2><p id="rotatorPrayerLocation">حسب منطقة الزائر</p></div><span class="rotator-dots"><i></i><i class="active"></i><i></i></span></div>
+      <div class="prayer-grid rotator-prayer-grid" id="rotatorPrayerGrid"><div class="prayer-empty">جاري تحديد الموقع وجلب المواقيت…</div></div>
+    </article>
+    <article class="daily-panel" data-panel="countdown">
+      <div class="rotator-head"><div><span class="rotator-icon">⏳</span><h2>العدّ التنازلي للمناسبات</h2><p>المتبقي حتى رمضان والعيدين</p></div><span class="rotator-dots"><i></i><i></i><i class="active"></i></span></div>
+      <div class="countdown-grid rotator-countdowns">
+        <div class="countdown-card ramadan"><span>🌙</span><div><small>رمضان 1448</small><strong id="rotRamadan">جارٍ الحساب…</strong><em>التاريخ المتوقع: 8 فبراير 2027</em></div></div>
+        <div class="countdown-card fitr"><span>🎉</span><div><small>عيد الفطر</small><strong id="rotFitr">جارٍ الحساب…</strong><em>التاريخ المتوقع: 10 مارس 2027</em></div></div>
+        <div class="countdown-card adha"><span>🕋</span><div><small>عيد الأضحى</small><strong id="rotAdha">جارٍ الحساب…</strong><em>التاريخ المتوقع: 17 مايو 2027</em></div></div>
+      </div>
+      <p class="date-note">التواريخ المتوقعة قد تتغير بحسب ثبوت رؤية الهلال.</p>
+    </article>
+  </div>
+  <button id="notifyBtn" class="notify-btn">🔔 تفعيل الإشعارات</button>
+</section>
+<section class="section"><h2>القوائم الرئيسية</h2><div class="cards main-menus">
+<a class="card blue" href="prayer-times.html"><b>🕌</b><h3>مواقيت الصلاة</h3><p>مواقيت الفجر والظهر والعصر والمغرب والعشاء حسب منطقة الزائر.</p></a>
+<a class="card violet" href="islamic-calendar.html"><b>📅</b><h3>التقويم الإسلامي</h3><p>التاريخ الميلادي والهجري والمناسبات والأشهر الهجرية.</p></a>
+<a class="card gold" href="countdowns.html"><b>🌙</b><h3>العدّ التنازلي للمناسبات</h3><p>المتبقي لرمضان وعيد الفطر وعيد الأضحى.</p></a>
+<a class="card pink" href="notifications.html"><b>🔔</b><h3>التنبيهات والتذكيرات</h3><p>تذكيرات الأذكار وقيام الليل بحسب توقيت الزائر.</p></a>
+<a class="card green" href="azkar.html"><b>📜</b><h3>أذكار متنوعة</h3><p>أذكار وأدعية متنوعة في صفحات سهلة الاستخدام.</p></a>
+<a class="card purple" href="quran.html#readerPanel"><b>📖</b><h3>القرآن الكريم — قراءة</h3><p>مصحف كامل صفحة صفحة مع السحب باللمس.</p></a>
+<a class="card blue" href="quran.html#audioPanel"><b>🔊</b><h3>القرآن الكريم — استماع</h3><p>استمع إلى سور القرآن الكريم كاملة.</p></a>
+<a class="card gold" href="duas.html"><b>🤲</b><h3>أدعية من القرآن</h3><p>أدعية مباركة وردت في كتاب الله، مرتبة لسهولة القراءة.</p></a>
+<a class="card pink" href="morning.html"><b>🌅</b><h3>أذكار الصباح والمساء</h3><p>أذكار الصباح والمساء اليومية في صفحات مستقلة.</p></a>
+<a class="card violet" href="books.html"><b>📚</b><h3>كتب وملفات</h3><p>قسم للكتب والملفات الإسلامية والمحتوى المفيد.</p></a>
+<a class="card food" href="recipes.html"><b>🍲</b><h3>وصفات سهلة ولذيذة</h3><p>وصفات منزلية مرتبة حسب النوع والمكونات.</p></a>
+<a class="card cyan" href="fatwas.html"><b>📋</b><h3>فتاوى ومعلومات</h3><p>معلومات وأسئلة شرعية مع الحرص على المصادر الموثوقة.</p></a>
+</div></section>
+<section class="section"><div class="content-box"><h3>🌿 هدف نور المسلم</h3><p>نريد أن يكون الوصول إلى القرآن الكريم والأذكار والأدعية والمحتوى النافع سهلًا من الهاتف والكمبيوتر، مع معلومات يومية مفيدة مثل الوقت والطقس ومواقيت الصلاة والتنبيهات.</p><div class="quick-links"><a href="quran.html">📖 القرآن الكريم</a><a href="morning.html">🌅 أذكار الصباح والمساء</a><a href="duas.html">🤲 أدعية من القرآن</a></div></div></section>
+<section class="section admin-contact-section">
+  <div class="content-box admin-chat-box">
+    <div class="admin-chat-icon">💬</div>
+    <div>
+      <h2>الدردشة مع مسؤول المجموعة</h2>
+      <p>لإرسال اقتراحاتك وأفكارك لتطوير نور المسلم، تواصل مع مسؤول المجموعة.</p>
+      <a class="admin-chat-btn" href="admin-chat.html">💬 إرسال اقتراح أو رسالة</a>
+    </div>
+  </div>
+</section>
+<footer><strong>نور المسلم 🌿</strong><p>القرآن والأذكار والأدعية والمحتوى النافع</p><small>© <span id="year"></span> نور المسلم</small></footer><script src="script.js"></script><script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const timeEl=$('localTime'), gregEl=$('gregorianDate'), hijriEl=$('hijriDate');
+  const cityEl=$('visitorCity'), locStatus=$('locationStatus'), weatherTemp=$('weatherTemp'), weatherText=$('weatherText'), weatherIcon=$('weatherIcon');
+  const prayerGrid=$('rotatorPrayerGrid'), prayerLocation=$('rotatorPrayerLocation');
+  const arabicDays=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+  const weatherMap={0:['☀️','سماء صافية'],1:['🌤️','غائم جزئيًا'],2:['🌥️','غائم جزئيًا'],3:['☁️','غائم'],45:['🌫️','ضباب'],48:['🌫️','ضباب'],51:['🌦️','رذاذ خفيف'],53:['🌦️','رذاذ'],55:['🌧️','رذاذ كثيف'],61:['🌦️','مطر خفيف'],63:['🌧️','مطر'],65:['🌧️','مطر غزير'],71:['🌨️','ثلوج خفيفة'],73:['🌨️','ثلوج'],75:['❄️','ثلوج غزيرة'],80:['🌦️','زخات مطر'],81:['🌧️','زخات مطر'],82:['⛈️','زخات قوية'],95:['⛈️','عواصف رعدية'],96:['⛈️','عاصفة مع برد'],99:['⛈️','عاصفة مع برد']};
+  function tick(){
+    const now=new Date();
+    timeEl.textContent=new Intl.DateTimeFormat('ar',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);
+    const g=new Intl.DateTimeFormat('ar',{day:'numeric',month:'long',year:'numeric'}).format(now);
+    gregEl.textContent=`${arabicDays[now.getDay()]}، ${g}`;
+    try{hijriEl.textContent=new Intl.DateTimeFormat('ar-SA-u-ca-islamic',{day:'numeric',month:'long',year:'numeric'}).format(now)}catch(e){hijriEl.textContent='التاريخ الهجري غير متاح'}
+  }
+  tick(); setInterval(tick,1000);
+  async function loadLocationData(lat,lon){
+    try{
+      const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}&localityLanguage=ar`);
+      if(!r.ok) throw new Error(); const d=await r.json();
+      const city=d.city||d.locality||d.principalSubdivision||d.countryName||'منطقتك';
+      cityEl.textContent=city; locStatus.textContent='تم تحديد المنطقة عبر موقع الجهاز'; prayerLocation.textContent=`مواقيت الصلاة في ${city}`;
+    }catch(e){cityEl.textContent='منطقة الزائر'; locStatus.textContent='تعذر تحديد اسم المنطقة'; prayerLocation.textContent='مواقيت الصلاة حسب موقعك'}
+    try{
+      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto`); if(!r.ok) throw new Error();
+      const d=await r.json(), c=d.current, [ic,txt]=weatherMap[c.weather_code]||['🌤️','حالة الطقس الحالية'];
+      weatherIcon.textContent=ic; weatherTemp.textContent=`${Math.round(c.temperature_2m)}°`; weatherText.textContent=txt;
+    }catch(e){weatherTemp.textContent='--°';weatherText.textContent='تعذر جلب الطقس الآن'}
+    try{
+      const date=new Date().toLocaleDateString('en-CA');
+      const r=await fetch(`https://api.aladhan.com/v1/timings/${date}?latitude=${lat}&longitude=${lon}&method=3`); if(!r.ok) throw new Error();
+      const j=await r.json(), t=j.data.timings;
+      const names=[['Fajr','الفجر','🌅'],['Dhuhr','الظهر','☀️'],['Asr','العصر','🌤️'],['Maghrib','المغرب','🌇'],['Isha','العشاء','🌙']];
+      prayerGrid.innerHTML=names.map(([k,n,i])=>`<div class="prayer-card"><span>${i}</span><div><b>${n}</b><strong>${t[k]||'--:--'}</strong></div></div>`).join('');
+    }catch(e){prayerGrid.innerHTML='<div class="prayer-empty">تعذر جلب مواقيت الصلاة الآن.</div>'}
+  }
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(p=>loadLocationData(p.coords.latitude,p.coords.longitude),()=>{cityEl.textContent='غير محدد';locStatus.textContent='اسمح بالموقع للحصول على الطقس والصلاة حسب منطقتك';prayerGrid.innerHTML='<div class="prayer-empty">اسمح بالموقع لعرض مواقيت الصلاة.</div>'},{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
+  }else{locStatus.textContent='المتصفح لا يدعم تحديد الموقع'}
+
+  const events=[['rotRamadan',new Date('2027-02-08T00:00:00')],['rotFitr',new Date('2027-03-10T00:00:00')],['rotAdha',new Date('2027-05-17T00:00:00')]];
+  function countdown(){const now=Date.now();events.forEach(([id,date])=>{let ms=date-now;const el=$(id);if(ms<=0){el.textContent='بدأت المناسبة أو انتهت';return}const d=Math.floor(ms/86400000),h=Math.floor(ms/3600000)%24,m=Math.floor(ms/60000)%60,s=Math.floor(ms/1000)%60;el.textContent=`${d} يوم · ${h} س · ${m} د · ${s} ث`})}
+  countdown();setInterval(countdown,1000);
+
+  const panels=[...document.querySelectorAll('.daily-panel')]; let active=0; const DURATION=15000, FADE=1800;
+  function showPanel(next){panels.forEach((p,i)=>p.classList.toggle('active',i===next));active=next}
+  setInterval(()=>{panels[active].classList.add('leaving');setTimeout(()=>{panels[active].classList.remove('leaving');showPanel((active+1)%panels.length)},FADE)},DURATION);
+
+  const notifyBtn=$('notifyBtn');
+  if(notifyBtn) notifyBtn.addEventListener('click',async()=>{if(!('Notification' in window)){notifyBtn.textContent='الإشعارات غير مدعومة';return}const p=await Notification.requestPermission();notifyBtn.textContent=p==='granted'?'✅ تم تفعيل الإشعارات':'🔔 تفعيل الإشعارات'});
+})();
+</script>
+
+<script>
+(() => {
+  const host = document.querySelector('.hero-slides');
+  if (!host) return;
+  const images = [
+    {name:'المسجد الأقصى', url:'https://upload.wikimedia.org/wikipedia/commons/c/c6/Al_Aqsa.jpg'},
+    {name:'المسجد الحرام', url:'https://upload.wikimedia.org/wikipedia/commons/7/73/Masjid_Al_Haram._Mecca%2C_Saudi_Arabia.jpg'},
+    {name:'المسجد النبوي', url:'https://upload.wikimedia.org/wikipedia/commons/4/4e/Prophet_Mosque.jpg'}
+  ];
+  images.forEach((item, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    slide.style.backgroundImage = `url("${item.url}")`;
+    slide.setAttribute('aria-label', item.name);
+    host.appendChild(slide);
+  });
+  const slides = [...host.querySelectorAll('.hero-slide')];
+  let current = 0;
+  const showNext = () => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  };
+  // Each image remains visible for 7 seconds, then fades smoothly to the next.
+  setInterval(showNext, 7000);
+})();
+</script>
+</body></html>

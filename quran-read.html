@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>📖 قراءة القرآن الكريم | نور المسلم</title>
+<link rel="stylesheet" href="style.css">
+<style>
+html,body{margin:0!important;padding:0!important;background:#111;overflow:hidden;height:100%;height:100dvh}
+.reader-screen{height:100dvh;width:100vw;background:#111;display:flex;flex-direction:column;position:fixed;inset:0;overflow:hidden}
+.reader-top{height:42px;min-height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:#102b43;color:#fff;z-index:10;box-sizing:border-box}
+.reader-top button{border:0;background:#ffffff18;color:#fff;border-radius:20px;padding:6px 11px;font-weight:bold;font-size:12px}.reader-top-actions{display:flex;gap:5px;align-items:center}.reader-top #bookmarkBtn.saved{background:#d9f3e7;color:#123f32}.bookmark-note{position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:9;background:#102b43;color:#fff;padding:7px 13px;border-radius:20px;font-size:12px;opacity:0;pointer-events:none;transition:opacity .2s}.bookmark-note.show{opacity:1}
+.reader-title{font-weight:bold;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50vw}
+.reader-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0;position:relative;background:#111;touch-action:none;perspective:1800px;overflow:hidden}
+.flipbook{position:relative;display:block;max-width:100%;max-height:100%;height:100%;width:auto;aspect-ratio:2/3;transform-style:preserve-3d}
+.flip-page{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;backface-visibility:hidden;background:#f7efd9;box-shadow:0 0 18px #000;transform-style:preserve-3d}
+.flip-under{z-index:1;visibility:hidden!important;opacity:0!important}
+.flip-current{z-index:3;transform-origin:100% 50%;will-change:transform;cursor:grab}
+.flip-current.dragging{cursor:grabbing}
+.flip-current::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 45%,rgba(0,0,0,.18));opacity:0;transition:opacity .1s}
+.flip-current.flipping::after{opacity:1}
+.bookmark-ribbon{position:absolute;top:0;left:10px;right:auto;width:30px;height:78px;background:#d92323;z-index:5;display:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);pointer-events:none}.bookmark-ribbon.show{display:block}.bookmark-ribbon::before{content:"🔖";position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:15px;filter:grayscale(1) brightness(0) invert(1)}
+.reader-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;background:#111;font-size:15px;z-index:6}
+.reader-bottom{height:42px;min-height:42px;display:flex;align-items:center;justify-content:center;gap:7px;background:#102b43;color:#fff;z-index:10;box-sizing:border-box}
+.reader-bottom button{border:0;background:#fff;color:#102b43;border-radius:20px;padding:6px 10px;font-weight:bold;font-size:11px}
+.reader-bottom span{font-size:12px;min-width:86px;text-align:center}
+@media(min-width:700px){.reader-top{height:46px;min-height:46px}.reader-bottom{height:46px;min-height:46px}.reader-stage{padding:4px 14px}.flipbook{max-height:100%;}}
+@media(prefers-reduced-motion:reduce){.flip-current{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="reader-screen">
+<header class="reader-top"><button id="backBtn">← السور</button><div class="reader-title" id="surahTitle">قراءة القرآن الكريم</div><div class="reader-top-actions"><button id="bookmarkBtn" title="حفظ هذه الصفحة">🔖 حفظ</button><button id="fsBtn">⛶ ملء الشاشة</button></div></header>
+<main class="reader-stage" id="stage"><div class="bookmark-note" id="bookmarkNote">🔖 تم حفظ الصفحة</div><div class="reader-loading" id="loading">جاري تحميل صفحة المصحف…</div><div class="flipbook" id="flipbook"><div id="bookmarkRibbon" class="bookmark-ribbon" aria-label="الصفحة محفوظة"></div><img id="underImg" class="flip-page flip-under" alt="الصفحة التالية" draggable="false"><img id="pageImg" class="flip-page flip-current" alt="صفحة من القرآن الكريم" draggable="false"></div></main>
+<footer class="reader-bottom"><button id="prev">→ السابقة</button><button id="bookmarkBottom">🔖 حفظ الصفحة</button><span id="pageInfo">الصفحة 1 / 604</span><button id="next">التالية ←</button></footer>
+</div>
+<script>
+const surahNames=['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص','الفلق','الناس'];
+const startPages={1:1,2:2,3:50,4:77,5:106,6:128,7:151,8:177,9:187,10:208,11:221,12:235,13:249,14:255,15:262,16:267,17:282,18:293,19:305,20:312,21:322,22:332,23:342,24:350,25:359,26:367,27:377,28:385,29:396,30:404,31:411,32:415,33:418,34:428,35:434,36:440,37:446,38:453,39:458,40:467,41:477,42:483,43:489,44:496,45:499,46:502,47:507,48:511,49:515,50:518,51:520,52:523,53:526,54:528,55:531,56:534,57:537,58:542,59:545,60:549,61:551,62:553,63:554,64:556,65:558,66:560,67:562,68:564,69:566,70:568,71:570,72:572,73:574,74:575,75:577,76:578,77:580,78:582,79:583,80:585,81:586,82:587,83:587,84:589,85:590,86:591,87:591,88:592,89:593,90:594,91:595,92:595,93:596,94:596,95:597,96:597,97:598,98:598,99:599,100:599,101:600,102:600,103:601,104:601,105:601,106:602,107:602,108:602,109:603,110:603,111:603,112:604,113:604,114:604};
+const params=new URLSearchParams(location.search); const surah=Math.max(1,Math.min(114,Number(params.get('surah'))||1));
+let page=startPages[surah]||1;
+const img=document.getElementById('pageImg'), underImg=document.getElementById('underImg'), loading=document.getElementById('loading');
+const flipbook=document.getElementById('flipbook'), stage=document.getElementById('stage');
+document.getElementById('surahTitle').textContent='سورة '+surahNames[surah-1];
+let currentPage=startPages[surah]||1;
+const BOOKMARK_KEY='mofeed_quran_bookmark_v1';
+function getBookmark(){try{return JSON.parse(localStorage.getItem(BOOKMARK_KEY)||'null')}catch(e){return null}}
+function removeBookmark(){
+  try{localStorage.removeItem(BOOKMARK_KEY)}catch(e){}
+  updateBookmarkUI();
+  const note=document.getElementById('bookmarkNote'); note.textContent='🗑️ تمت إزالة العلامة المرجعية'; note.classList.add('show'); clearTimeout(window.__bmTimer); window.__bmTimer=setTimeout(()=>{note.classList.remove('show'); note.textContent='🔖 تم حفظ الصفحة'},1500);
+}
+function toggleBookmark(){
+  const b=getBookmark();
+  if(b&&b.surah===surah&&b.page===currentPage) removeBookmark();
+  else saveBookmark();
+}
+function saveBookmark(){
+  const data={surah, page:currentPage, surahName:surahNames[surah-1], savedAt:Date.now()};
+  try{localStorage.setItem(BOOKMARK_KEY,JSON.stringify(data))}catch(e){}
+  updateBookmarkUI();
+  const note=document.getElementById('bookmarkNote'); note.classList.add('show'); clearTimeout(window.__bmTimer); window.__bmTimer=setTimeout(()=>note.classList.remove('show'),1500);
+}
+function updateBookmarkUI(){
+  const b=getBookmark(); const active=b&&b.surah===surah&&b.page===currentPage;
+  document.getElementById('bookmarkRibbon').classList.toggle('show',!!active);
+  document.getElementById('bookmarkBtn').classList.toggle('saved',!!active);
+  document.getElementById('bookmarkBtn').textContent=active?'🔖 إزالة':'🔖 حفظ';
+  document.getElementById('bookmarkBtn').title=active?'إزالة العلامة المرجعية':'حفظ هذه الصفحة';
+  document.getElementById('bookmarkBottom').textContent=active?'🔖 إزالة العلامة':'🔖 حفظ الصفحة';
+}
+function autoRememberPage(){
+  const b=getBookmark();
+  // لا نغيّر العلامة اليدوية تلقائياً؛ تبقى الصفحة التي اختارها المستخدم.
+  updateBookmarkUI();
+}
+let busy=false, sx=0, sy=0, dragging=false, dragDx=0, dragDir=0;
+function pageUrl(p){return 'https://cdn.myquran.com/img/page/'+p+'.png'}
+function preload(p){return new Promise((resolve,reject)=>{if(p<1||p>604){resolve(null);return}const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=pageUrl(p)})}
+function setInfo(){document.getElementById('pageInfo').textContent='الصفحة '+currentPage+' / 604'; updateBookmarkUI()}
+async function showPage(p){
+  p=Math.max(1,Math.min(604,p)); currentPage=p; setInfo(); loading.style.display='flex'; loading.textContent='جاري تحميل صفحة المصحف…';
+  try{const [cur,next]=await Promise.all([preload(p),preload(p+1).catch(()=>null)]); img.src=cur.src; underImg.removeAttribute('src'); img.style.transform='rotateY(0deg)'; img.style.transition='none'; busy=false; loading.style.display='none';}
+  catch(e){loading.textContent='تعذر تحميل الصفحة. حاول مرة أخرى.'; busy=false}
+}
+function setDrag(dx){
+  if(!dragging||busy)return;
+  dragDx=dx; dragDir=dx>0?1:-1;
+  const w=Math.max(1,flipbook.getBoundingClientRect().width);
+  const progress=Math.min(1,Math.abs(dx)/w);
+  img.classList.add('flipping');
+  // يمين = التالية: اقلب الورقة حول حافتها اليمنى. يسار = السابقة: حول حافتها اليسرى.
+  img.style.transformOrigin=dragDir>0?'100% 50%':'0% 50%';
+  img.style.transform='rotateY('+(dragDir>0?progress*180:-progress*180)+'deg)';
+}
+async function finishDrag(){
+  if(!dragging||busy)return; dragging=false; img.classList.remove('dragging');
+  const w=Math.max(1,flipbook.getBoundingClientRect().width); const progress=Math.min(1,Math.abs(dragDx)/w);
+  const shouldFlip=Math.abs(dragDx)>Math.max(60,w*.16);
+  if(!shouldFlip){img.style.transition='transform .22s ease';img.style.transform='rotateY(0deg)';setTimeout(()=>img.style.transition='none',240);return}
+  busy=true; const dir=dragDir; const target=dir>0?currentPage+1:currentPage-1;
+  if(target<1||target>604){img.style.transition='transform .22s ease';img.style.transform='rotateY(0deg)';setTimeout(()=>{img.style.transition='none';busy=false},240);return}
+  try{
+    const targetIm=await preload(target);
+    underImg.removeAttribute('src');
+    img.style.transition='transform .38s cubic-bezier(.2,.75,.2,1)';
+    img.style.transformOrigin=dir>0?'100% 50%':'0% 50%';
+    img.style.transform='rotateY('+(dir>0?180:-180)+'deg)';
+    setTimeout(async()=>{
+      currentPage=target; setInfo(); img.src=targetIm.src;
+      img.style.transition='none'; img.style.transform='rotateY(0deg)';
+      const next=await preload(currentPage+1).catch(()=>null); underImg.removeAttribute('src');
+      busy=false;
+    },400);
+  }catch(e){img.style.transition='transform .22s ease';img.style.transform='rotateY(0deg)';setTimeout(()=>{img.style.transition='none';busy=false},240)}
+}
+stage.addEventListener('pointerdown',e=>{if(busy||e.pointerType==='mouse'&&e.button!==0)return; dragging=true;sx=e.clientX;sy=e.clientY;dragDx=0;img.classList.add('dragging');stage.setPointerCapture?.(e.pointerId)},{passive:true});
+stage.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)>Math.abs(dy))setDrag(dx)},{passive:true});
+stage.addEventListener('pointerup',finishDrag,{passive:true});stage.addEventListener('pointercancel',()=>{if(dragging){dragging=false;img.classList.remove('dragging');img.style.transition='transform .22s ease';img.style.transform='rotateY(0deg)';setTimeout(()=>img.style.transition='none',240)}},{passive:true});
+document.getElementById('prev').onclick=()=>{if(!busy) showPage(currentPage-1)};document.getElementById('next').onclick=()=>{if(!busy) showPage(currentPage+1)};document.getElementById('bookmarkBtn').onclick=toggleBookmark;document.getElementById('bookmarkBottom').onclick=toggleBookmark;
+document.getElementById('backBtn').onclick=()=>location.href='quran.html';
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')showPage(currentPage-1);if(e.key==='ArrowRight')showPage(currentPage+1)});
+document.getElementById('fsBtn').onclick=async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(e){}};
+showPage(currentPage);
+</script>
+</body>
+</html>

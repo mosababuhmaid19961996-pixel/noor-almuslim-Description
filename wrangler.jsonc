@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+  "name": "noor-almuslim",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-28",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "exclude": ["worker.js", "schema.sql", "wrangler.jsonc", "README-DEPLOY-AR.md", ".git/**"]
+  }
+}
